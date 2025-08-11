@@ -36,7 +36,7 @@ watchAuth((user, role) => {
     authSection.hidden = false;
     return;
   }
-  who.textContent = `Signed in: ${user.email ?? user.uid} (${role ?? "viewer"})`;
+  who.textContent = `Signed in: ${user.email ?? user.uid} (${role ?? "viewer"})  [uid: ${user.uid}]`;
   nav.hidden = false;
   authSection.hidden = true;
 });
