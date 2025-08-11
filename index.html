@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utilitrack</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <section id="auth-section">
+      <h1>Utilitrack</h1>
+      <form id="auth-form">
+        <label for="email">Email</label>
+        <input id="email" type="email" required />
+        <label for="password">Password</label>
+        <input id="password" type="password" required />
+        <button type="submit">Sign In</button>
+        <button type="button" id="register-btn">Register</button>
+      </form>
+    </section>
+
+    <nav id="nav" hidden>
+      <button data-route="#/dashboard">Dashboard</button>
+      <button data-route="#/map">Map</button>
+      <button data-route="#/users">Users</button>
+      <button data-route="#/config">Config</button>
+      <button data-route="#/news">News</button>
+      <button id="logout-btn">Sign Out</button>
+    </nav>
+
+    <main id="app"></main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

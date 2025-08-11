@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+label {
+  display: block;
+  margin-top: 0.5rem;
+}
+#map {
+  height: 60vh;
+}
+nav button {
+  margin-right: 0.5rem;
+}
