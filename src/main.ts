@@ -1,6 +1,7 @@
 import './styles.css';
-import { register, login, logout, watchAuth, UserRole } from './auth';
+import { register, login, logout, UserRole } from './auth';
 import { router } from './router';
+import { watchAuth } from "./auth";
 
 const authSection = document.getElementById('auth-section') as HTMLElement;
 const nav = document.getElementById('nav') as HTMLElement;
@@ -11,6 +12,34 @@ const registerBtn = document.getElementById('register-btn') as HTMLButtonElement
 const logoutBtn = document.getElementById('logout-btn') as HTMLButtonElement;
 
 let role: UserRole | null = null;
+
+function getWhoEl(): HTMLElement {
+  let el = document.getElementById("whoami") as HTMLElement | null;
+  if (!el) {
+    const header = document.getElementById("app-header") ?? document.body;
+    el = document.createElement("div");
+    el.id = "whoami";
+    el.style.font = "14px system-ui";
+    header.prepend(el);
+  }
+  return el;
+}
+
+watchAuth((user, role) => {
+  const who = getWhoEl();
+  const nav = document.getElementById("nav")!;
+  const authSection = document.getElementById("auth-section")!;
+
+  if (!user) {
+    who.textContent = "";
+    nav.hidden = true;
+    authSection.hidden = false;
+    return;
+  }
+  who.textContent = `Signed in: ${user.email ?? user.uid} (${role ?? "viewer"})  [uid: ${user.uid}]`;
+  nav.hidden = false;
+  authSection.hidden = true;
+});
 
 watchAuth((user, userRole) => {
   role = userRole;
