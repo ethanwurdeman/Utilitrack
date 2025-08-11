@@ -1,7 +1,7 @@
 import L from 'leaflet';
 import { length } from '@turf/turf';
 import JSZip from 'jszip';
-import { kml } from 'togeojson';
+import { kml } from '@tmcw/togeojson';
 import type { UserRole } from '../auth';
 import { el } from '../ui/components';
 
